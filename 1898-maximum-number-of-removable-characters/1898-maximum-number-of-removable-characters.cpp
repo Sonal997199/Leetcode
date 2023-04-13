@@ -1,8 +1,8 @@
 class Solution {
 public:
     int maximumRemovals(string s, string p, vector<int>& removable) {
-        /*int l=0;
-        int h=removable.size()-1;
+        int l=0;
+        int h=removable.size();
         int ans=0;
         while(l<=h)
         {
@@ -25,11 +25,11 @@ public:
             }
             else h=mid-1;
         }
-        return ans;*/
+        return ans;
         
         
         
-        int i=0, j=removable.size(), ans=0;
+       /* int i=0, j=removable.size(), ans=0;
         while(i<=j){
             int mid=i+(j-i)/2;
             string s1=s;
@@ -49,6 +49,6 @@ public:
                 j=mid-1;
             }
         }
-        return ans;
+        return ans;*/
     }
 };
