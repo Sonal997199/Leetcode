@@ -40,7 +40,7 @@ public:
             for(int i=0; i<s1.size() && k<l; i++){
                 if(s1[i]==p[k]){k++;}
             }
-            cout<<mid<<" "<<l<<" "<<k<<endl;
+            //cout<<mid<<" "<<l<<" "<<k<<endl;
             if(l==k){
                 ans=mid;
                 i=mid+1;
