@@ -1,7 +1,7 @@
 class Solution {
 public:
     int singleNonDuplicate(vector<int>& nums) {
-        int l=0,h=nums.size()-1;
+        /*int l=0,h=nums.size()-1;
         while(l<h)
         {
             int m=(l+h)/2;
@@ -11,6 +11,12 @@ public:
             }
             else h=m;
         }
-        return nums[l];
+        return nums[l];*/
+        
+        
+        
+        int ans=0;
+        for(int i=0;i<nums.size();i++)ans=ans^nums[i];
+        return ans;
     }
 };
