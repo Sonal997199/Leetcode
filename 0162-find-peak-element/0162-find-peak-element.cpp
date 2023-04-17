@@ -12,7 +12,7 @@ public:
         
         //Binary Search
         
-        int n=nums.size();
+        /*int n=nums.size();
         int low=0;
         int high=n-1;
         
@@ -22,6 +22,8 @@ public:
             if(nums[mid]>nums[mid+1])high=mid;
             else low=mid+1;
         }
-        return low;
+        return low;*/
+        
+        return max_element(nums.begin(),nums.end())-nums.begin();
     }
 };
