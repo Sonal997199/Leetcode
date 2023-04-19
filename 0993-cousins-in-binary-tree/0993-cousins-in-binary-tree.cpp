@@ -13,29 +13,44 @@ class Solution {
 public:
     bool isCousins(TreeNode* root, int x, int y,bool siblings=false,bool cousin=false)
     {
-        queue<TreeNode*> q,q1;
-        q.push(root);
-        while(!q.empty() && !cousin)
+        queue<pair<TreeNode*,pair<int,int>>> q;
+        q.push({root,{0,0}});
+        int xlevel,ylevel;
+        int xparent,yparent;
+        
+        while(!q.empty())
         {
-            while(!q.empty())
+            TreeNode* n=q.front().first;
+            int l=q.front().second.first;
+            int par=q.front().second.second;
+            q.pop();
+            
+            if(n->val==x)
             {
-                TreeNode* n=q.front();
-                q.pop();
-                if(n==nullptr)siblings=false;
-                else
-                {
-                    if(n->val==x || n->val==y)
-                    {
-                        if(!cousin)cousin=siblings=true;
-                        else return !siblings;
-                    }
-                    q1.push(n->left);
-                    q1.push(n->right);
-                    q1.push(nullptr);
-                }
+                xlevel=l;
+                xparent=par;
             }
-            swap(q,q1);
+            else if(n->val==y)
+            {
+                ylevel=l;
+                yparent=par;
+            }
+            
+            if(n->left)
+            {
+                q.push({n->left,{l+1,n->val}});
+            }
+            if(n->right)
+            {
+                q.push({n->right,{l+1,n->val}});
+            }
         }
+        
+        if(xlevel==ylevel)
+        {
+            if(xparent!=yparent)return true;
+        }
+        
         return false;
     }
 };
