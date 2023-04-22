@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int lcs(string s,string t)
+    int dp[505][505];
+    /*int lcs(string s,string t)
     {
         int n=s.size();
         int m=t.size();
@@ -23,8 +24,29 @@ public:
         string t=s;
         reverse(t.begin(),t.end());
         return lcs(s,t);
+    }*/
+    
+    int solve(string& s,int i,int j)
+    {
+        if(i==j || i>j)return dp[i][j]=0;
+        if(dp[i][j]!=-1)return dp[i][j];
+        
+        if(s[i]==s[j])return dp[i][j]=solve(s,i+1,j-1);
+        else return dp[i][j]=min(solve(s,i+1,j)+1,solve(s,i,j-1)+1);
+        return 0;
     }
     int minInsertions(string s) {
-        return s.length()-lps(s);
+        //return s.length()-lps(s);
+        
+        
+        for(int i=0;i<=500;i++)
+        {
+            for(int j=0;j<=500;j++)
+            {
+                dp[i][j]=-1;
+            }
+        }
+        int n=s.size();
+        return solve(s,0,n-1);
     }
 };
