@@ -34,5 +34,5 @@ You don't need to read input or print anything. Your task is to complete the fun
 <br>
 <span style="font-size:18px"><strong>Constraints:</strong><br>
 1 &lt;= n &lt;= 10<sup>5</sup><br>
-1 &lt;= arr[i] &lt;= 10<sup>9</sup></span></p>
+0 &lt;= arr[i] &lt;= 10<sup>9</sup></span></p>
 </div>
