@@ -1,15 +1,15 @@
 class Solution {
 public:
     int arraySign(vector<int>& nums) {
-        int sign=1;
+        int sign=0;
         
         for(int i=0;i<nums.size();i++)
         {
             if(nums[i]==0)return 0;
-            else if(nums[i]<0)sign*=-1;
+            if(nums[i]<0)sign++;
         }
         
-        if(sign>0)return 1;
-        else return -1;
+        if(sign%2)return -1;
+        else return 1;
     }
 };
