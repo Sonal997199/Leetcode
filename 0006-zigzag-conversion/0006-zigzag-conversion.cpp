@@ -8,7 +8,6 @@ public:
         {
             bool flag=true;
             int j=i;
-            //for(int j=i;j<s.length();)
             while(j<s.size())
             {
                 res+=s[j];
