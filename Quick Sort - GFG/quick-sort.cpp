@@ -20,13 +20,15 @@ class Solution
     void quickSort(int arr[], int low, int high)
     {
         // code here
-        
         if(low<high)
         {
-            int pivot=partition(arr,low,high);
-            quickSort(arr,low,pivot-1);
-            quickSort(arr,pivot+1,high);
+            int temp=partition(arr,low,high);
+            
+            quickSort(arr,low,temp-1);
+            quickSort(arr,temp+1,high);
         }
+        
+        
     }
     
     public:
@@ -34,19 +36,21 @@ class Solution
     {
        // Your code here
        
-       int pivot=arr[low];
-       int i=low;
-       int j=high;
+       int pivot=arr[high];
+       int window=low-1;
        
-       while(i<j)
+       for(int i=low;i<=high;i++)
        {
-           while(arr[i]<=pivot && i<=high-1)i++;
-           while(arr[j]>pivot and j>=low+1)j--;
-           if(i<j)swap(arr[i],arr[j]);
+           if(arr[i]<pivot)
+           {
+               window++;
+               swap(arr[i],arr[window]);
+           }
        }
        
-       swap(arr[low],arr[j]);
-       return j;
+       swap(arr[high],arr[window+1]);
+       
+       return window+1;
     }
 };
 
